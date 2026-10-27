@@ -1,0 +1,1 @@
+MainPID przed kill: 3199

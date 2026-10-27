@@ -1,0 +1,15 @@
+[Unit]
+Description=Llamafile LLM server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=llamafile
+Group=llamafile
+Environment=HOME=/var/lib/llamafile
+ExecStart=/bin/sh /opt/llamafile/model.llamafile --server --gpu disable --host 192.168.128.2 --port 8080
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

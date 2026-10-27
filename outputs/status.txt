@@ -1,0 +1,21 @@
+● llamafile.service - Llamafile LLM server
+     Loaded: loaded (/etc/systemd/system/llamafile.service; enabled; preset: enabled)
+     Active: active (running) since Mon 2026-10-26 17:02:22 UTC; 2min 14s ago
+ Invocation: 27f5504d902c48e0937e24e7745fd48f
+   Main PID: 3199 (.ape-1.10)
+      Tasks: 14 (limit: 6497)
+     Memory: 1.8G (peak: 1.8G, swap: 43.3M, swap peak: 44M)
+        CPU: 18.550s
+     CGroup: /system.slice/llamafile.service
+             └─3199 /var/lib/llamafile/.ape-1.10 /opt/llamafile/model.llamafile --server --gpu disable --host 192.168.128.2 --port 8080
+
+Oct 26 17:02:24 kaszmirowymnich sh[3199]: 0.01.974.364 I cmn          init: llama threadpool init, n_threads = 2
+Oct 26 17:02:29 kaszmirowymnich sh[3199]: 0.06.769.408 W load_hparams: Qwen-VL models require at minimum 1024 image tokens to function correctly on grounding tasks
+Oct 26 17:02:29 kaszmirowymnich sh[3199]: 0.06.769.447 W load_hparams: if you encounter problems with accuracy, try adding --image-min-tokens 1024
+Oct 26 17:02:29 kaszmirowymnich sh[3199]: 0.06.769.448 W load_hparams: more info: https://github.com/ggml-org/llama.cpp/issues/16842
+Oct 26 17:02:32 kaszmirowymnich sh[3199]: 0.10.023.518 I srv    load_model: loaded multimodal model, '/zip/302b92d565080b9cc0281186979ae75a7429ec23d14f6f7607a035539b21f3a6.gguf'
+Oct 26 17:02:34 kaszmirowymnich sh[3199]: 0.12.167.046 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 16384, kv_unified = 'true'
+Oct 26 17:02:34 kaszmirowymnich sh[3199]: 0.12.193.579 I srv  llama_server: model loaded
+Oct 26 17:02:34 kaszmirowymnich sh[3199]: 0.12.193.783 I srv  llama_server: listening on http://192.168.128.2:8080
+Oct 26 17:02:34 kaszmirowymnich sh[3199]: 0.12.193.970 W srv  llama_server: NOTICE: server default port will be changed to :9931 in a future release
+Oct 26 17:02:34 kaszmirowymnich sh[3199]: 0.12.194.094 W srv  llama_server:         ref: https://github.com/ggml-org/llama.cpp/pull/26508
